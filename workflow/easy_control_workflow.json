@@ -1,0 +1,279 @@
+{
+  "id": "c49815f5-d171-411a-829e-218c709c72af",
+  "revision": 0,
+  "last_node_id": 8,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "SaveImage",
+      "pos": [
+        1181.408203125,
+        57.845035552978516
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        ""
+      ]
+    },
+    {
+      "id": 1,
+      "type": "EasyControlGenerate",
+      "pos": [
+        633.4993286132812,
+        -110.28936004638672
+      ],
+      "size": [
+        400,
+        370
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "EASYCONTROL_PIPE",
+          "link": 6
+        },
+        {
+          "name": "transformer",
+          "type": "EASYCONTROL_TRANSFORMER",
+          "link": 9
+        },
+        {
+          "name": "spatial_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "subject_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "jax-explorer/ComfyUI-easycontrol",
+        "ver": "04bdb9693267f2a432bef99a4be58a7a405c5ac7",
+        "Node name for S&R": "EasyControlGenerate"
+      },
+      "widgets_values": [
+        "Ghibli Studio style, Charming hand-drawn anime-style illustration",
+        "",
+        1152,
+        768,
+        3.5,
+        25,
+        4169612872561,
+        "randomize",
+        512
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        1181.2059326171875,
+        -300.764404296875
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1734781976564_1733541125680_39669668 (2) (1) (1).jpeg",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "EasyControlLoadLora",
+      "pos": [
+        605.4656982421875,
+        -266.60003662109375
+      ],
+      "size": [
+        443.4000244140625,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "transformer",
+          "type": "EASYCONTROL_TRANSFORMER",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "EASYCONTROL_TRANSFORMER",
+          "type": "EASYCONTROL_TRANSFORMER",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "jax-explorer/ComfyUI-easycontrol",
+        "ver": "89bc16583a4a7f37f08d58a406741756a4c0825d",
+        "Node name for S&R": "EasyControlLoadLora"
+      },
+      "widgets_values": [
+        "Ghibli.safetensors",
+        1,
+        512
+      ]
+    },
+    {
+      "id": 6,
+      "type": "EasyControlLoadFlux",
+      "pos": [
+        638.5324096679688,
+        -506.0146789550781
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "EASYCONTROL_PIPE",
+          "type": "EASYCONTROL_PIPE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "EASYCONTROL_TRANSFORMER",
+          "type": "EASYCONTROL_TRANSFORMER",
+          "links": [
+            7,
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "jax-explorer/ComfyUI-easycontrol",
+        "ver": "c68225bdbd2b66f9a576fc70bf05f0665b4365d3",
+        "Node name for S&R": "EasyControlLoadFlux"
+      },
+      "widgets_values": [
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      1,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      5,
+      0,
+      1,
+      2,
+      "IMAGE"
+    ],
+    [
+      6,
+      6,
+      0,
+      1,
+      0,
+      "EASYCONTROL_PIPE"
+    ],
+    [
+      8,
+      6,
+      1,
+      8,
+      0,
+      "EASYCONTROL_TRANSFORMER"
+    ],
+    [
+      9,
+      8,
+      0,
+      1,
+      1,
+      "EASYCONTROL_TRANSFORMER"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.620921323059155,
+      "offset": [
+        -199.07515996233354,
+        685.76916061825
+      ]
+    }
+  },
+  "version": 0.4
+}
