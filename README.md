@@ -1,7 +1,8 @@
 
 
-
 # ComfyUI EasyControl Nodes  [24GB Memsupport]
+
+EasyControl 量化推理优化版本，仅需24GB显存。
 
 ComfyUI EasyControl Nodes is a collection of nodes for ComfyUI that allows you to load and use EasyControl models.
 
@@ -9,7 +10,7 @@ https://github.com/Xiaojiu-z/EasyControl comfyui
 
 I modify it to adapt on the
 
-autodownload flux model (need 50GB disk space)
+autodownload flux model and only need 24GB  by quantilization!!!.
 
 lora need download to models/loras
 
